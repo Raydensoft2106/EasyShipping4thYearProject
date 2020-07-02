@@ -12,13 +12,14 @@ Step 1 – Load Android Studio and select Check out project from Version Control
 
 Step 2 – Select GitHub from the drop down list
 
-Step 3 – Enter your GitHub credentials. (A00240194, 21061999) Then click Login
+Step 3 – Enter your GitHub credentials. Then click Login
 
 Step 4 – Fill out the Clone Repository form and click Clone
 
 Fill out the following items:
 
 Vcs Repository URL: https://github.com/aitsoftwaredesign/project4-A00240194
+                  https://github.com/Raydensoft2106/EasyShipping4thYearProject
 Parent Directory: The local directory where you want to store this project
 Directory Name: EasyShipping
 
