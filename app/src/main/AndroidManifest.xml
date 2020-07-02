@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.easyshipping">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permision.CALL_PHONE"/>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <service
+            android:name=".MyBackgroundLocationService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <!--
+     The API key for Google Maps-based APIs is defined as a string resource.
+     (See the file "res/values/google_maps_api.xml").
+     Note that the API key is linked to the encryption key used to sign the APK.
+     You need a different API key for each encryption key, including the release key that is used to
+     sign the APK for publishing.
+     You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPwdPjGmyWVJIF8jtLY3TgZv0ZseBKeYU" />
+        <meta-data
+            android:name="com.google.android.maps.API_KEY"
+            android:value="AIzaSyBPwdPjGmyWVJIF8jtLY3TgZv0ZseBKeYU" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".DeliveredParcelsActivity"/>
+        <activity android:name=".ViewSentOrdersActivity"/>
+        <activity android:name=".ConfigLocationActivity"/>
+        <activity android:name=".RouteMapActivity" />
+        <activity android:name=".PermissionsActivity" />
+        <activity android:name=".WarehouseEmpHomeActivity" />
+        <activity android:name=".DriverEmpHomeActivity" />
+        <activity android:name=".DeliveryListActivity" />
+        <activity android:name=".SenderCustHomeActivity" />
+        <activity android:name=".CreateLabelActivity" />
+        <activity android:name=".ChangeLabelActivity" />
+        <activity android:name=".ReturnParcelActivity"/>
+        <activity android:name=".ViewConsignmentsActivity" />
+        <activity android:name=".ReceiverCustHomeActivity" />
+        <activity android:name=".PrintActivity" />
+        <activity android:name=".ReprintLabelActivity" />
+        <activity android:name=".DepotMapActivity" />
+        <activity android:name=".ForgetAndChangePasswordActivity" />
+        <activity android:name=".LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ReaderActivity" />
+        <activity android:name=".DriverReaderActivity" />
+        <activity android:name=".RegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NotMainActivity">
+
+        </activity>
+        <activity android:name=".SignatureActivity" android:theme="@style/AppTheme.PopUp"></activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.easyshipping"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".TrackParcelActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+    </application>
+
+</manifest>
